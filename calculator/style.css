@@ -1,0 +1,154 @@
+:root {
+    --bg-color: #2d2d2d;
+    --display-bg: #1a1a1a;
+    --btn-bg: #4d4d4d;
+    --btn-hover: #5e5e5e;
+    --btn-active: #3a3a3a;
+    --operator-bg: #ff9500;
+    --operator-hover: #ffaa33;
+    --operator-active: #cc7700;
+    --clear-bg: #ff3b30;
+    --clear-hover: #ff5e54;
+    --clear-active: #cc2c24;
+    --equals-bg: #28a745;
+    --equals-hover: #34ce57;
+    --equals-active: #1e7e34;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #3a3a3a, #1a1a1a);
+    color: white;
+}
+
+.calculator {
+    width: 320px;
+    background-color: var(--bg-color);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    border: 1px solid #444;
+}
+
+.brand {
+    text-align: right;
+    color: #ff9500;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.display {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: var(--display-bg);
+    border-radius: 8px;
+    text-align: right;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #333;
+}
+
+.previous-operand {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    min-height: 24px;
+    word-wrap: break-word;
+}
+
+#current-operand {
+    width: 100%;
+    font-size: 2rem;
+    border: none;
+    background: transparent;
+    color: white;
+    text-align: right;
+    outline: none;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+}
+
+button {
+    height: 60px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: var(--btn-bg);
+    color: white;
+    transition: all 0.2s;
+    font-family: 'Orbitron', sans-serif;
+}
+
+button:hover {
+    background-color: var(--btn-hover);
+    transform: translateY(-2px);
+}
+
+button:active {
+    background-color: var(--btn-active);
+    transform: translateY(0);
+}
+
+.span-2 {
+    grid-column: span 2;
+}
+
+[data-operation] {
+    background-color: var(--operator-bg);
+}
+
+[data-operation]:hover {
+    background-color: var(--operator-hover);
+}
+
+[data-operation]:active {
+    background-color: var(--operator-active);
+}
+
+[data-action="clear"] {
+    background-color: var(--clear-bg);
+}
+
+[data-action="clear"]:hover {
+    background-color: var(--clear-hover);
+}
+
+[data-action="clear"]:active {
+    background-color: var(--clear-active);
+}
+
+[data-action="calculate"] {
+    background-color: var(--equals-bg);
+}
+
+[data-action="calculate"]:hover {
+    background-color: var(--equals-hover);
+}
+
+[data-action="calculate"]:active {
+    background-color: var(--equals-active);
+}
+
+/* Animation for button press */
+@keyframes buttonPress {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.95); }
+    100% { transform: scale(1); }
+}
+
+button:active {
+    animation: buttonPress 0.2s ease;
+}
